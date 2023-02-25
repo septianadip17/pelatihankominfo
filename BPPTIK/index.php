@@ -6,38 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php 'Yey Gajian!'?></title>
-    <style>
-        /* memberi warna background pada latar belakang web, mengatur gaya huruf . */
-        body {
-            background-color: black;
-            font-family: 'Times New Roman', Times, serif;
-        }
-        /* Mengatur warna dan posisi pada tag h1 dan h2. */
-        h1, h2 {
-            color: #f1f1f1;
-            text-align: center;
-        }
-        
-        /* Mengatur warna, posisi dan juga letak atas bawah pada kelas container. */
-        .container {
-            color: #f1f1f1;
-            text-align: center;
-            padding: 10px;
-        }
-        /* Memberi warna pada tag p. */
-        p {
-            color: #f1f1f1;
-        }
-        /*  Meletakan posisi kelas hasil di tengah.*/
-        .hasil {
-            text-align: center;
-        }
-        /* input[type=text] {
-            height: 40px;
-        } */
-    </style>
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
-<form action="project2.php" method="post">
+<form action="index2.php" method="post">
     <h1>Aplikasi Perhitungan Gaji</h1>
     <h2>Karyawan Paruh Waktu</h2>
     <div class="container">
