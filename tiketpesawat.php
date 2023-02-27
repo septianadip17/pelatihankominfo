@@ -20,7 +20,7 @@
 
             <div class="form-group ">
                 <label>Bandara Asal:</label>
-                <select class="form-control">
+                <select class="col-sm-5 col-form-label mt-2">
                     <?php $bandaraAsal = ['Soekarno-Hatta (CGK)', 'Husein Sastranegara (BDO)', 'Hasanuddin (UPG)', 'Juanda (SUB)'];
 			        foreach ($bandaraAsal as $awal) {
 				        $selected = @$_POST['awal'] == $awal ? ' selected="selected"' : '';
@@ -32,7 +32,7 @@
 
             <div class="form-group ">
                 <label>Bandara Tujuan:</label>
-                <select class="form-control">
+                <select class="col-sm-5 col-form-label mt-2">
                     <?php $bandaraTujuan = ['Ngurah Rai (DPS)', 'Hasanuddin (UPG)', 'Inanwatan (INX)', 'Sultan Iskandarmuda (BTJ)'];
 			        foreach ($bandaraTujuan as $akhir) {
 				        $selected = @$_POST['akhir'] == $akhir ? ' selected="selected"' : '';
@@ -44,12 +44,68 @@
 
             <div class="form-group ">
                 <label for="hargaTiket">Harga Tiket:</label>
-                <input type="text" placeholder="Harga Tiket" id="hargaTiket">
+                    <h2>0</h2>
             </div>
 
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
     </div><br>
+
+    <table class="text-center">
+        <thead class="container text-center">
+            <tr>
+                <th scope="col">Maskapai</th>
+                <th scope="col">Asal Penerbangan</th>
+                <th scope="col">Tujuan Penerbangan</th>
+                <th scope="col">Harga Tiket</th>
+                <th scope="col">Pajak</th>
+                <th scope="col">Total Harga Tiket</th>
+            </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>Adam Air</td>
+        <td>Soekarno-Hatta (CGK)</td>
+        <td>Sultan Iskandarmuda (BTJ)</td>
+        <td>2000000</td>
+        <td>120000</td>
+        <td>2120000</td>
+    </tr>
+    <tr>
+        <td>Batik</td>
+        <td>Husein Sastranegara (BDO)</td>
+        <td>Sultan Iskandarmuda (BTJ)</td>
+        <td>100000</td>
+        <td>100000</td>
+        <td>200000</td>
+    </tr>
+    <tr>
+        <td>Batik</td>
+        <td>Soekarno-Hatta (CGK)</td>
+        <td>Hasanuddin (UPG)</td>
+        <td>890000</td>
+        <td>120000</td>
+        <td>1010000</td>
+    </tr>
+    <tr>
+        <td>Citilink</td>
+        <td>Soekarno-Hatta (CGK)</td>
+        <td>Sultan Iskandarmuda (BTJ)</td>
+        <td>89000</td>
+        <td>120000</td>
+        <td>209000</td>
+    </tr>
+    <tr>
+        <td>Garuda Indonesia</td>
+        <td>Soekarno-Hatta (CGK)</td>
+        <td>Ngurah Rai (DPS)</td>
+        <td>1500000</td>
+        <td>130000</td>
+        <td>1630000</td>
+    </tr>
+    </tbody>
+</table>
+<br><br><br>
 
     <?php
         $data = array(
@@ -90,7 +146,7 @@
     );
 
 echo "<table>";
-echo "<tr>
+echo "<tr >
                 <th>Maskapai</th>
                 <th>Asal Penerbangan</th>
                 <th>Tujuan Penerbangan</th>
