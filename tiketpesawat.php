@@ -7,15 +7,16 @@
     <title>Pemesanan Tiket Pesawat</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link type="text/css" rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <div class="container">
         <h2 class="alert alert-primary text-center mt-2">Pendaftaran Rute Penerbangan</h2>
-        <form>
+        <form method="POST" action="">
             <div class="form-group ">
-                <label for="maskapai">Maskapai:</label>
-                <input type="text" placeholder="Nama Maskapai" id="maskapai">
+                <label class="col-1" for="maskapai">Maskapai:</label><br>
+                <input type="text" placeholder="Nama Maskapai" name="maskapai" id="maskapai" value="<?=isset($_POST['maskapai']) ? $_POST['maskapai'] : ''?>">
             </div>
 
             <div class="form-group ">
@@ -43,15 +44,138 @@
             </div>
 
             <div class="form-group ">
-                <label for="hargaTiket">Harga Tiket:</label>
-                    <h2>0</h2>
+                <label for="hargaTiket" >Harga Tiket:</label>
+                    <h2 name="tiket" value="<?=@$_POST['tiket']?>">0</h2>
             </div>
 
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary" name="submit" value="<?=@$_POST['submit']?>">Submit</button>
         </form>
     </div><br>
+    
 
-    <table class="text-center">
+    <?php
+// inisialisasi array kosong
+$data = array(
+    array("Maskapai" => "Adam Air",
+    "Asal Penerbangan" => "Soekarno-Hatta (CGK)",
+    "Tujuan Penerbangan" => "Sultan Iskandarmuda (BTJ)",
+    "Harga Tiket" => "2000000",
+    "Pajak" => 120000,
+    "Total Harga" => 2120000),
+
+    array("Maskapai" => "Batik",
+    "Asal Penerbangan" => "Husein Sastranegara (BDO)",
+    "Tujuan Penerbangan" => "Sultan Iskandarmuda (BTJ)",
+    "Harga Tiket" => "100000",
+    "Pajak" => 100000,
+    "Total Harga" => 200000),
+
+    array("Maskapai" => "Batik",
+    "Asal Penerbangan" => "Soekarno-Hatta (CGK)",
+    "Tujuan Penerbangan" => "Hasanuddin (UPG)",
+    "Harga Tiket" => "890000",
+    "Pajak" => 120000,
+    "Total Harga" => 1010000),
+
+    array("Maskapai" => "Citilink",
+    "Asal Penerbangan" => "Soekarno-Hatta (CGK)",
+    "Tujuan Penerbangan" => "Sultan Iskandarmuda (BTJ)",
+    "Harga Tiket" => "89000",
+    "Pajak" => 120000,
+    "Total Harga" => 209000),
+
+    array("Maskapai" => "Garuda Indonesia",
+    "Asal Penerbangan" => "Soekarno-Hatta (CGK)",
+    "Tujuan Penerbangan" => "Ngurah Rai (DPS)",
+    "Harga Tiket" => 1500000,
+    "Pajak" => 130000,
+    "Total Harga" => 1630000)
+);
+
+// cek apakah form telah disubmit
+if(isset($_POST['submit'])) {
+
+        // menambahkan data ke dalam array
+        $data[] = array('Maskapai' => $maskapai, 'Asal Penerbangan' => $awal, 'Tujuan Penerbangan' => $akhir, 'Harga Tiket' => $tiket, 'Pajak' => $pajak, 'Total Harga' => $total);
+
+    // mengambil data dari form input
+    $maskapai = $_POST['maskapai'];
+    $awal = $_POST['awal'];
+    $akhir = $_POST['akhir'];
+    $tiket = $_POST['tiket'];
+    $pajak = $_POST['pajak'];
+    $total = $_POST['total'];
+}
+?>
+
+<?php
+    $awal = 0;
+    $akhir = 0;
+    // $pajak = $pajakAsal + $pajakTujuan;
+    ?>
+
+
+<?php if(sort($data) > 0): ?>
+    <h3>Dafar Rute Tersedia</h3>
+
+        <table>
+            <tr>
+                <th>Maskapai</th>
+                <th>Asal Penerbangan</th>
+                <th>Tujuan Penerbangan</th>
+                <th>Harga Tiket</th>
+                <th>Pajak</th>
+                <th>Total Harga</th>
+            </tr>
+            <?php foreach($data as $row): ?>
+                <tr>
+                    <td><?php echo $row['Maskapai']; ?></td>
+                    <td><?php echo $row['Asal Penerbangan']; ?></td>
+                    <td><?php echo $row['Tujuan Penerbangan']; ?></td>
+                    <td><?php echo $row['Harga Tiket']; ?></td>
+                    <td><?php echo $row['Pajak']; ?></td>
+                    <td><?php echo $row['Total Harga']; ?></td>
+                </tr>
+            <?php endforeach; ?>
+        </table>
+    <?php endif; ?><br><br>
+
+<?php
+// contoh fungsi untuk menghasilkan baris tabel
+// echo "<table>";
+// echo "<tr>
+//                 <th>Maskapai</th>
+//                 <th>Asal Penerbangan</th>
+//                 <th>Tujuan Penerbangan</th>
+//                 <th>Harga Tiket</th>
+//                 <th>Pajak</th>
+//                 <th>Total Harga Tiket</th>
+//             </tr>";
+// function createTableRow($data) {
+//     $row = "<tr>";
+//     foreach ($data as $value) {
+//     $row .= "<td>" . $value . "</td>";
+//     }
+//     $row .= "</tr>";
+//     return $row;
+// }
+
+// data untuk ditampilkan pada tabel
+// $data = array(
+//     array("Adam Air","Soekarno-Hatta (CGK)","Sultan Iskandarmuda (BTJ)","2000000",120000,2120000),
+//     array("Batik","Husein Sastranegara (BDO)","Sultan Iskandarmuda (BTJ)","100000",100000,200000),
+//     array("Batik","Soekarno-Hatta (CGK)","Hasanuddin (UPG)","890000",120000,1010000),
+//     array("Citilink","Soekarno-Hatta (CGK)","Sultan Iskandarmuda (BTJ)","89000",120000,209000),
+//     array("Garuda Indonesia","Soekarno-Hatta (CGK)","Ngurah Rai (DPS)",1500000,130000,1630000)
+// );
+// // output tabel HTML
+// foreach ($data as $row) {
+//     echo createTableRow($row);
+// }
+// echo "</table>";
+// ?><br><br>
+
+<!-- <table class="text-center">
         <thead class="container text-center">
             <tr>
                 <th scope="col">Maskapai</th>
@@ -105,68 +229,7 @@
     </tr>
     </tbody>
 </table>
-<br><br><br>
-
-    <?php
-        $data = array(
-        array("Adam Air",
-        "Soekarno-Hatta (CGK)",
-        "Sultan Iskandarmuda (BTJ)",
-        "2000000",
-        120000,
-        2120000),
-
-        array("Batik",
-        "Husein Sastranegara (BDO)",
-        "Sultan Iskandarmuda (BTJ)",
-        "100000",
-        100000,
-        200000),
-
-        array("Batik",
-        "Soekarno-Hatta (CGK)",
-        "Hasanuddin (UPG)",
-        "890000",
-        120000,
-        1010000),
-
-        array("Citilink",
-        "Soekarno-Hatta (CGK)",
-        "Sultan Iskandarmuda (BTJ)",
-        "89000",
-        120000,
-        209000),
-
-        array("Garuda Indonesia",
-        "Soekarno-Hatta (CGK)",
-        "Ngurah Rai (DPS)",
-        1500000,
-        130000,
-        1630000)
-    );
-
-echo "<table>";
-echo "<tr >
-                <th>Maskapai</th>
-                <th>Asal Penerbangan</th>
-                <th>Tujuan Penerbangan</th>
-                <th>Harga Tiket</th>
-                <th>Pajak</th>
-                <th>Total Harga Tiket</th>
-            </tr>";
-foreach ($data as $row) {
-    echo "<tr>
-                    <td>" . $row[0] . "</td>
-                    <td>" . $row[1] . "</td>
-                    <td>" . $row[2] . "</td>
-                    <td>" . $row[3] . "</td>
-                    <td>" . $row[4] . "</td>
-                    <td>" . $row[5] . "</td>
-                </tr>";
-}
-echo "</table>";
-?>
-
+<br><br><br> -->
 
 <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
