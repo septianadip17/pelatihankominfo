@@ -1,0 +1,45 @@
+{
+    "data": [
+        {
+            "pesawat" : "Adam Air",
+            "bandara_asal" : "Soekarno-Hatta (CGK)",
+            "bandara_tujuan" : "Sultan Iskandarmuda (BTJ)",
+            "harga_tiket" : 2000000,
+            "pajak" : 120000,
+            "total_harga": 2120000
+        },
+        {
+            "pesawat" : "Batik",
+            "bandara_asal" :  "Husein Sastranegara (BDO)",
+            "bandara_tujuan" : "Sultan Iskandarmuda (BTJ)",
+            "harga_tiket" : 100000,
+            "pajak" : 100000,
+            "total_harga": 200000
+        },
+        { 
+            "pesawat" : "Batik",
+            "bandara_asal" :  "Soekarno-Hatta (CGK)",
+            "bandara_tujuan" : "Hasanuddin (UPG)",
+            "harga_tiket" : 890000,
+            "pajak" : 120000,
+            "total_harga": 1010000 
+        },
+        {
+            "pesawat" :  "Citilink",
+            "bandara_asal" :  "Soekarno-Hatta (CGK)",
+            "bandara_tujuan" : "Sultan Iskandarmuda (BTJ)",
+            "harga_tiket" : 89000,
+            "pajak" : 120000,
+            "total_harga": 209000 
+        },
+        {
+            "pesawat" :  "Garuda Indonesia",
+            "bandara_asal" :  "Soekarno-Hatta (CGK)",
+            "bandara_tujuan" : "Ngurah Rai (DPS)",
+            "harga_tiket" : 1500000,
+            "pajak" : 130000,
+            "total_harga": 1630000 
+        }
+    ]
+}
+    

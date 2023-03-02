@@ -1,0 +1,24 @@
+body {
+    background-color: black;
+    font-family: 'Times New Roman', Times, serif;
+}
+/* Mengatur warna dan posisi pada tag h1 dan h2. */
+h1, h2 {
+    color: #f1f1f1;
+    text-align: center;
+}
+
+/* Mengatur warna, posisi dan juga letak atas bawah pada kelas container. */
+.container {
+    color: #f1f1f1;
+    text-align: center;
+    padding: 10px;
+}
+/* Memberi warna pada tag p. */
+p {
+    color: #f1f1f1;
+}
+/*  Meletakan posisi kelas hasil di tengah.*/
+.hasil {
+    text-align: center;
+}
