@@ -4,7 +4,7 @@ $asal = [
 	["Soekarno-Hatta (CGK)", 50000],
 	["Husein Sastranegara (BDO)", 30000],
 	["Abdul Rachman Saleh (MLG)", 40000],
-	["Juanda (SUB) ", 40000]
+	["Juanda (SUB)", 40000]
 ];
 //harga pajak bandara tujuan
 $tujuan = [
