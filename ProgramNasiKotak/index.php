@@ -5,6 +5,7 @@
 		$tagihanAwal = $harga * $jumlah;
 		return $tagihanAwal;
 	}
+	//fungsi ini untuk mengalikan harga satuan dengan jumlah pesanan yang nantinya menjadi tagihan awal sebelum mendapat diskon 
 
 	//	Instruksi Kerja Nomor 2.
 	//	Variabel $cabang berisi data kota lokasi cabang restoran dalam bentuk array.
